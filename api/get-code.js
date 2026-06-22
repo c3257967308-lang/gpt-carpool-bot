@@ -43,8 +43,12 @@ function extractCode(text) {
  * @returns {Promise<{success: boolean, code: string|null, error: string|null}>}
  */
 async function fetchVerificationCode(account) {
-  if (!account || !account.imap_host || !account.imap_user || !account.imap_pass) {
+  if (!account || !account.imap_host || !account.imap_pass) {
     return { success: false, code: null, error: '邮箱 IMAP 配置不完整' };
+  }
+  // 如果 imap_user 为空，默认使用 email
+  if (!account.imap_user) {
+    account.imap_user = account.email;
   }
 
   const client = new ImapFlow({
