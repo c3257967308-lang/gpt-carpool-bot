@@ -148,12 +148,12 @@ module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-cache');
 
   try {
-    // 从 Supabase 查询邮箱 IMAP 配置
+    // 从 Supabase 查询邮箱 IMAP 配置（不区分大小写）
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
     const { data: account, error } = await supabase
       .from('email_accounts')
       .select('*')
-      .eq('email', email)
+      .ilike('email', email)
       .maybeSingle();
 
     if (error) {
