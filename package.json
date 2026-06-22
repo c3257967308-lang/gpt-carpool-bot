@@ -1,18 +1,7 @@
 {
   "name": "gpt-carpool-bot",
   "version": "1.0.0",
-  "description": "微信公众号验证码机器人 - Vercel Serverless Functions",
-  "main": "api/wechat.js",
-  "scripts": {
-    "start": "vercel dev",
-    "deploy": "vercel --prod"
-  },
-  "dependencies": {
-    "@supabase/supabase-js": "^2.39.0",
-    "imapflow": "^1.0.162",
-    "xml2js": "^0.6.2"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  }
+  "description": "GPT拼车验证码机器人",
+  "scripts": {},
+  "dependencies": {}
 }
