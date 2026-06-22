@@ -1,0 +1,11 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": "pip install -r requirements.txt",
+  "deploy": [
+    {
+      "startCommand": "gunicorn server:app",
+      "restartPolicyType": "on_failure",
+      "restartPolicyMaxRetries": 3
+    }
+  ]
+}
